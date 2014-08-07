@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="./WEB-INF/templates/principal.xhtml">
+
+    <ui:define name="styles">
+        <link href="./css/inscricao.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="titulo-form">LOGIN</div>
+            <h:panelGroup styleClass="form-block" layout="block">
+                <h:outputLabel value="Usuário" style="display: inline-block; width: 50px"/>
+                <h:inputText id="login" value="#{loginBean.login}" label="Login" size="15" required="true"/>
+            </h:panelGroup>
+            <h:panelGroup styleClass="form-block" layout="block">
+                <h:outputLabel value="Senha" style="display: inline-block; width: 50px"/>
+                <h:inputSecret id="senha" value="#{loginBean.senha}" label="Senha" size="15" required="true"/>
+            </h:panelGroup>
+            <h:panelGroup styleClass="form-block" layout="block">
+                <h:selectBooleanCheckbox value="#{loginBean.administrador}"/>
+                <h:outputText value="Administrador"/>
+            </h:panelGroup>
+            <h:commandButton value="Entrar" action="#{loginBean.realizarLogin()}"/>
+            <h:panelGroup styleClass="msgerro" layout="block">
+                <h:messages/>
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
